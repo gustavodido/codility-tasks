@@ -43,43 +43,5 @@ public class Task1 {
         }
         return true;
     }
-
-    private int findRightIndex(int[] input) {
-        for (int i = input.length - 1; i >= 1; i--) {
-            if (input[i - 1] > input[i]) {
-                while (i < input.length - 1 && input[i] == input[i + 1]) {
-                    i++;
-                }
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    public boolean yourFunction(int[] A) {
-        int[] input = A;
-        int leftIndex = findLeftIndex(input);
-        int rightIndex = findRightIndex(input);
-        if (leftIndex == rightIndex || leftIndex == -1 || rightIndex == -1)
-            return false; // check these edge cases just to be on safe side.
-
-        int temp = A[leftIndex];
-        A[leftIndex] = A[rightIndex];
-        A[rightIndex] = temp;
-
-
-        return isSorted(input);
-    }
-
-    private int findLeftIndex(int[] input) {
-        for (int i = 0; i < (input.length - 1); i++) {
-            if (input[i] > input[i + 1]) {
-                while (i > 0 && input[i] == input[i - 1]) {
-                    i--;
-                }
-                return i;
-            }
-        }
-        return -1;
-    }
+  
 }
